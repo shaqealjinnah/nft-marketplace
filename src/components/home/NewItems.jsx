@@ -4,18 +4,11 @@ import { useEffect, useState } from "react";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import CountdownTimer from "../UI/CountdownTimer";
 
 const NewItems = () => {
   const [items, setItems] = useState(null);
   const [loading, setLoading] = useState(null);
-
-  let millisElapsed;
-  let secondsLeft;
-  let minsLeft;
-  let hoursLeft;
-  let startTime;
-  let countdown;
-  let timeLeft;
 
   const options = {
     responsive: {
@@ -41,38 +34,11 @@ const NewItems = () => {
     );
     setItems(data);
     setLoading(false);
-    countdownTimer();
   }
-
-  function countdownTimer() {
-    startTime = Date.now();
-    setInterval(updateTimer, 1000);
-  }
-
-
-  function updateTimer() {
-    if (items === null) {
-      return;
-    } else {
-      countdown = items[0].expiryDate;
-
-      millisElapsed = Date.now() - startTime;
-      timeLeft = countdown - millisElapsed;
-
-      secondsLeft = Math.floor(timeLeft / 1000) % 60;
-      minsLeft = Math.floor(timeLeft / 1000 / 60) % 60;
-      hoursLeft = Math.floor(timeLeft / 1000 / 60 / 24);
-
-      console.log(minsLeft) 
-    }
-  }
-  
 
   useEffect(() => {
     getData();
   }, []);
-
-
 
   return (
     <section id="section-items" className="no-bottom">
@@ -104,7 +70,9 @@ const NewItems = () => {
                         <i className="fa fa-check"></i>
                       </Link>
                     </div>
-                    <div className="de_countdown">{hoursLeft}h {minsLeft}m {secondsLeft}s</div>
+                    {data.expiryDate ? (
+                      <CountdownTimer expiryDate={data.expiryDate} />
+                    ) : null}
 
                     <div className="nft__item_wrap">
                       <div className="nft__item_extra">
@@ -125,7 +93,7 @@ const NewItems = () => {
                         </div>
                       </div>
 
-                      <Link to="/item-details">
+                      <Link to={`/item-details`}>
                         <img
                           src={data.nftImage}
                           className="lazy nft__item_preview"
