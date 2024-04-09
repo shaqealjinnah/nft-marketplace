@@ -35,7 +35,7 @@ const TopSellers = () => {
           </div>
           <div className="col-md-12">
             <ol className="author_list">
-              {!loading || items
+              {!loading && items
                 ? items.map((data, index) => (
                     <li key={index}>
                       <div className="author_list_pp">
@@ -60,17 +60,15 @@ const TopSellers = () => {
                       <li key={index}>
                         <div className="author_list_pp">
                           <Link to="/author">
-                            <img
-                              className="lazy pp-author"
-                              src={AuthorImage}
+                            <div
+                              className="lazy pp-author skeleton--icon-sm skeleton-box"
                               alt=""
-                            />
-                            <i className="fa fa-check"></i>
+                            ></div>
                           </Link>
                         </div>
                         <div className="author_list_info">
-                          <Link to="/author">Monica Lucas</Link>
-                          <span>2.1 ETH</span>
+                          <div className="skeleton--title skeleton-box"></div>
+                          <div className="skeleton--id skeleton-box"></div>
                         </div>
                       </li>
                     ))}
