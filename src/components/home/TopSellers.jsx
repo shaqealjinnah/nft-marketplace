@@ -4,17 +4,19 @@ import AuthorImage from "../../images/author_thumbnail.jpg";
 import axios from "axios";
 
 const TopSellers = () => {
-  const [loading, setLoading] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [items, setItems] = useState(null);
 
   async function getData() {
-    setLoading(true);
-    const { data } = await axios.get(
-      "https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers"
-    );
-    setItems(data);
-    setLoading(false);
-    console.log(items)
+    try {
+      const { data } = await axios.get(
+        "https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers"
+      );
+      setItems(data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   }
 
   useEffect(() => {
@@ -33,7 +35,7 @@ const TopSellers = () => {
           </div>
           <div className="col-md-12">
             <ol className="author_list">
-              {loading && items
+              {!loading || items
                 ? items.map((data, index) => (
                     <li key={index}>
                       <div className="author_list_pp">
