@@ -14,6 +14,7 @@ const TopSellers = () => {
     );
     setItems(data);
     setLoading(false);
+    console.log(items)
   }
 
   useEffect(() => {
@@ -32,42 +33,45 @@ const TopSellers = () => {
           </div>
           <div className="col-md-12">
             <ol className="author_list">
-                {loading === true ? Array(12).fill(0).map((_, index) => (
-                  <li key={index}>
-                    <div className="author_list_pp">
-                      <Link to="/author">
-                        <img
-                          className="lazy pp-author"
-                          src={AuthorImage}
-                          alt=""
-                        />
-                        <i className="fa fa-check"></i>
-                      </Link>
-                    </div>
-                    <div className="author_list_info">
-                      <Link to="/author">Monica Lucas</Link>
-                      <span>2.1 ETH</span>
-                    </div>
-                  </li>
-                ))
-              :  items.map((data, index) => (
-                <li key={index}>
-                  <div className="author_list_pp">
-                    <Link to="/author">
-                      <img
-                        className="lazy pp-author"
-                        src={data.authorImage}
-                        alt=""
-                      />
-                      <i className="fa fa-check"></i>
-                    </Link>
-                  </div>
-                  <div className="author_list_info">
-                    <Link to="/author">{data.authorName}</Link>
-                    <span>{data.price} ETH</span>
-                  </div>
-                </li>
-              ))}
+              {loading && items
+                ? items.map((data, index) => (
+                    <li key={index}>
+                      <div className="author_list_pp">
+                        <Link to="/author">
+                          <img
+                            className="lazy pp-author"
+                            src={data.authorImage}
+                            alt=""
+                          />
+                          <i className="fa fa-check"></i>
+                        </Link>
+                      </div>
+                      <div className="author_list_info">
+                        <Link to="/author">{data.authorName}</Link>
+                        <span>{data.price} ETH</span>
+                      </div>
+                    </li>
+                  ))
+                : Array(12)
+                    .fill(0)
+                    .map((_, index) => (
+                      <li key={index}>
+                        <div className="author_list_pp">
+                          <Link to="/author">
+                            <img
+                              className="lazy pp-author"
+                              src={AuthorImage}
+                              alt=""
+                            />
+                            <i className="fa fa-check"></i>
+                          </Link>
+                        </div>
+                        <div className="author_list_info">
+                          <Link to="/author">Monica Lucas</Link>
+                          <span>2.1 ETH</span>
+                        </div>
+                      </li>
+                    ))}
             </ol>
           </div>
         </div>
