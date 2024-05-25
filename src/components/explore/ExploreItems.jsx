@@ -7,37 +7,43 @@ import CountdownTimer from "../UI/CountdownTimer";
 
 const ExploreItems = () => {
   const [loading, setLoading] = useState(true);
-  const [items, setItems] = useState(null);
-
+  const [items, setItems] = useState([]);
+  const [visibleItems, setVisibleItems] = useState(8);
+  const [selectFilter, setSelectFilter] = useState("");
+  const filterQuery = selectFilter ? `?filter=${selectFilter}` : "";
+  
   async function getData() {
     try {
       const { data } = await axios.get(
-        "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore${filterQuery}`
       );
       setItems(data);
       setLoading(false);
-      console.log(items);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   }
 
+  const loadMoreItems = () => {
+    setVisibleItems((prevVisibleItems) => prevVisibleItems + 4);
+  };
+
   useEffect(() => {
     getData();
-  }, []);
+  }, [selectFilter]);
 
   return (
     <>
       <div>
-        <select id="filter-items" defaultValue="">
+        <select id="filter-items" defaultValue="" onChange={(e) => setSelectFilter(e.target.value)}>
           <option value="">Default</option>
           <option value="price_low_to_high">Price, Low to High</option>
           <option value="price_high_to_low">Price, High to Low</option>
           <option value="likes_high_to_low">Most liked</option>
         </select>
       </div>
-      {!loading && items
-        ? items.map((data, index) => (
+      {!loading && items.length > 0
+        ? items.slice(0, visibleItems).map((data, index) => (
             <div
               key={index}
               className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
@@ -54,9 +60,9 @@ const ExploreItems = () => {
                     <i className="fa fa-check"></i>
                   </Link>
                 </div>
-                {data.expiryDate ? (
-                      <CountdownTimer expiryDate={data.expiryDate} />
-                    ) : null}
+                {data.expiryDate && (
+                  <CountdownTimer expiryDate={data.expiryDate} />
+                )}
 
                 <div className="nft__item_wrap">
                   <div className="nft__item_extra">
@@ -156,9 +162,16 @@ const ExploreItems = () => {
             </div>
           ))}
       <div className="col-md-12 text-center">
-        <Link to="" id="loadmore" className="btn-main lead">
-          Load more
-        </Link>
+        {items.length > visibleItems && (
+          <Link
+            onClick={loadMoreItems}
+            to=""
+            id="loadmore"
+            className="btn-main lead"
+          >
+            Load more
+          </Link>
+        )}
       </div>
     </>
   );
