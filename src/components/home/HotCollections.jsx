@@ -67,7 +67,7 @@ const HotCollections = () => {
                     </Link>
                   </div>
                   <div className="nft_coll_pp">
-                    <Link to="/author">
+                    <Link to={`/author/${data.authorId}`}>
                       <img
                         className="lazy pp-coll"
                         src={data.authorImage}
@@ -99,7 +99,6 @@ const HotCollections = () => {
                   </div>
                   <div className="nft_coll_pp">
                     <div className="skeleton--icon skeleton-box"></div>
-                    <i className="fa fa-check"></i>
                   </div>
                   <div className="nft_coll_info">
                     <div className="skeleton--title skeleton-box"></div>

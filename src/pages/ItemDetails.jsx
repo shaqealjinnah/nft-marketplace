@@ -48,7 +48,7 @@ const ItemDetails = () => {
                       <div className="item_author">
                         <div className="author_list_pp">
                           <Link to="/author">
-                            <img className="lazy" src={AuthorImage} alt="" />
+                            <img className="lazy author-icon" src={AuthorImage} alt="" />
                             <i className="fa fa-check"></i>
                           </Link>
                         </div>
@@ -65,7 +65,7 @@ const ItemDetails = () => {
                       <div className="item_author">
                         <div className="author_list_pp">
                           <Link to="/author">
-                            <img className="lazy" src={AuthorImage} alt="" />
+                            <img className="lazy author-icon" src={AuthorImage} alt="" />
                             <i className="fa fa-check"></i>
                           </Link>
                         </div>

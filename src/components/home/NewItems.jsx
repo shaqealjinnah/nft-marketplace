@@ -61,12 +61,12 @@ const NewItems = () => {
                   <div className="nft__item" key={index}>
                     <div className="author_list_pp">
                       <Link
-                        to="/author"
+                        to={`/author/${data.authorId}`}
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
                         title="Creator: Monica Lucas"
                       >
-                        <img className="lazy" src={data.authorImage} alt="" />
+                        <img className="lazy author-icon" src={data.authorImage} alt="" />
                         <i className="fa fa-check"></i>
                       </Link>
                     </div>
@@ -75,23 +75,6 @@ const NewItems = () => {
                     ) : null}
 
                     <div className="nft__item_wrap">
-                      <div className="nft__item_extra">
-                        <div className="nft__item_buttons">
-                          <button>Buy Now</button>
-                          <div className="nft__item_share">
-                            <h4>Share</h4>
-                            <a href="" target="_blank" rel="noreferrer">
-                              <i className="fa fa-facebook fa-lg"></i>
-                            </a>
-                            <a href="" target="_blank" rel="noreferrer">
-                              <i className="fa fa-twitter fa-lg"></i>
-                            </a>
-                            <a href="">
-                              <i className="fa fa-envelope fa-lg"></i>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
 
                       <Link to={`/item-details`}>
                         <img
@@ -116,29 +99,10 @@ const NewItems = () => {
               : new Array(7).fill(0).map((_, index) => (
                   <div className="nft__item" key={index}>
                     <div className="author_list_pp">
-                      <div className="skeleton--icon-sm skeleton-box"></div>
-                      <i className="fa fa-check"></i>
                     </div>
                     <div></div>
 
                     <div className="nft__item_wrap nft--skeleton skeleton-box">
-                      <div className="nft__item_extra">
-                        <div className="nft__item_buttons">
-                          <button>Buy Now</button>
-                          <div className="nft__item_share">
-                            <h4>Share</h4>
-                            <a href="" target="_blank" rel="noreferrer">
-                              <i className="fa fa-facebook fa-lg"></i>
-                            </a>
-                            <a href="" target="_blank" rel="noreferrer">
-                              <i className="fa fa-twitter fa-lg"></i>
-                            </a>
-                            <a href="">
-                              <i className="fa fa-envelope fa-lg"></i>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                     <div className="nft__item_info">
                       <div className="skeleton--title skeleton-box mt-3"></div>
