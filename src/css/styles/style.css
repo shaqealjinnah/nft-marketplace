@@ -16312,6 +16312,10 @@ img {
     width: 100%;
   }
 
+  .item_info {
+    margin-top: 20px;
+  }
+
   .profile_follow {
     margin-top: 40px;
     width: 100%;
@@ -16690,6 +16694,11 @@ img {
   width: 100px;
 }
 
+.skeleton--title-large {
+  height: 70px;
+  margin-bottom: 20px;
+}
+
 .skeleton--id {
   height: 20px;
   background-color: #dddbdd;
@@ -16701,7 +16710,7 @@ img {
 .skeleton-box {
   position: relative;
   overflow: hidden;
-  background-color: #dddbdd;
+  background-color: #dddbdd !important;
 }
 
 .skeleton-avatar {
@@ -16709,6 +16718,18 @@ img {
   height: 150px;
   background-color: #dddbdd;
   border-radius: 100%;
+}
+
+.item__info--skeleton {
+  width: 80px;
+  height: 30px;
+}
+
+.nft__img__large--skeleton {
+  min-width: 300px;
+  min-height: 400px;
+  width: 100%;
+  height: 100%;
 }
 
 .skeleton-button {

@@ -12,6 +12,7 @@ const AuthorItems = ({ id }) => {
         `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${id}`
       );
       setItems(data);
+      console.log(data)
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
@@ -56,12 +57,12 @@ const AuthorItems = ({ id }) => {
                   <div className="nft__item">
                     <div className="author_list_pp">
                       <Link to="">
-                        <img className="lazy author-icon" src={item.nftImage} alt="" />
+                        <img className="lazy author-icon" src={items.authorImage} alt="" />
                         <i className="fa fa-check"></i>
                       </Link>
                     </div>
                     <div className="nft__item_wrap">
-                      <Link to="/item-details">
+                      <Link to={`/item-details/${item.nftId}`}>
                         <img
                           src={item.nftImage}
                           className="lazy nft__item_preview"
