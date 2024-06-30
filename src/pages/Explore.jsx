@@ -32,7 +32,7 @@ const Explore = () => {
 
         <section aria-label="section">
           <div className="container">
-            <div className="row">
+            <div data-aos="fade" className="row">
               <ExploreItems />
             </div>
           </div>
