@@ -1,16 +1,16 @@
-import React from "react";
 
 const LandingIntro = () => {
+
   return (
     <section id="section-intro" className="no-top no-bottom">
       <div className="container">
         <div className="row">
           <div className="col-lg-4 col-md-6 mb-sm-30">
             <div className="feature-box f-boxed style-3">
-              <i className="bg-color-2 i-boxed icon_wallet"></i>
+              <i className="bg-color-2 i-boxed icon_wallet animate__animated animate__fadeInUp"></i>
               <div className="text">
-                <h4 className="">Set up your wallet</h4>
-                <p>
+                <h4 className="animate__animated animate__fadeIn delay delay-0_25s">Set up your wallet</h4>
+                <p className="animate__animated animate__fadeInUp delay-0_5s">
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                   accusantium doloremque laudantium, totam rem.
                 </p>
@@ -20,10 +20,10 @@ const LandingIntro = () => {
           </div>
           <div className="col-lg-4 col-md-6 mb-sm-30">
             <div className="feature-box f-boxed style-3">
-              <i className="bg-color-2 i-boxed icon_cloud-upload_alt"></i>
+              <i className=" animate__animated animate__fadeInUp bg-color-2 i-boxed icon_cloud-upload_alt"></i>
               <div className="text">
-                <h4 className="">Add your NFT's</h4>
-                <p>
+                <h4 className="animate__animated animate__fadeIn delay delay-0_25s">Add your NFT's</h4>
+                <p className="animate__animated animate__fadeInUp delay-0_5s">
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                   accusantium doloremque laudantium, totam rem.
                 </p>
@@ -33,10 +33,10 @@ const LandingIntro = () => {
           </div>
           <div className="col-lg-4 col-md-6 mb-sm-30">
             <div className="feature-box f-boxed style-3">
-              <i className="bg-color-2 i-boxed icon_tags_alt"></i>
+              <i className=" animate__animated animate__fadeInUp bg-color-2 i-boxed icon_tags_alt"></i>
               <div className="text">
-                <h4 className="">Sell your NFT's</h4>
-                <p>
+                <h4 className="animate__animated animate__fadeIn delay delay-0_25s">Sell your NFT's</h4>
+                <p className="animate__animated animate__fadeInUp delay-0_5s">
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                   accusantium doloremque laudantium, totam rem.
                 </p>
