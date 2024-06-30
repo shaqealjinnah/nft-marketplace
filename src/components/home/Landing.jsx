@@ -3,7 +3,6 @@ import backgroundImage from "../../images/bg-shape-1.jpg";
 import { Link } from "react-router-dom";
 
 const Landing = () => {
-  
   return (
     <section
       id="section-hero"
@@ -18,25 +17,42 @@ const Landing = () => {
             <div className="col-md-6">
               <div className="spacer-single"></div>
               <h6>
-                <span className="text-uppercase id-color-2 animate__animated animate__fadeIn delay-0_5s">
+                <span
+                  data-aos="fade-in"
+                  data-aos-delay="500"
+                  className="text-uppercase id-color-2"
+                >
                   Ultraverse Market
                 </span>
               </h6>
               <div className="spacer-10"></div>
-              <h1 className="animate__animated animate__fadeInUp delay-0_75s">Create, sell or collect digital items.</h1>
-              <p className="lead animate__animated animate__fadeInUp animate__delay-1s">
+              <h1 data-aos="fade-up" data-aos-delay="750">
+                Create, sell or collect digital items.
+              </h1>
+              <p className="lead" data-aos="fade-up" data-aos-delay="1000">
                 Unit of data stored on a digital ledger, called a blockchain,
                 that certifies a digital asset to be unique and therefore not
                 interchangeable
               </p>
               <div className="spacer-10"></div>
-              <Link className="btn-main lead animate__animated animate__fadeIn delay-1_25s" to="/explore">
+              <Link
+                data-aos="fade-in"
+                data-aos-delay="1300"
+                className="btn-main lead"
+                to="/explore"
+              >
                 Explore
               </Link>
               <div className="mb-sm-30"></div>
             </div>
             <div className="col-md-6 xs-hide">
-              <img src={NFT} className="lazy img-fluid animate__animated animate__fadeIn delay-1_25s" alt=""/>
+              <img
+                src={NFT}
+                data-aos="fade-in"
+                data-aos-delay="1300"
+                className="lazy img-fluid"
+                alt=""
+              />
             </div>
           </div>
         </div>
